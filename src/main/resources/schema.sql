@@ -1,0 +1,5 @@
+CREATE TABLE IF NOT EXISTS event (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    credit_points INT NOT NULL
+);
