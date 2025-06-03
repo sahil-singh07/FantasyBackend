@@ -10,9 +10,17 @@ public class Event {
     private Long id;
 
     private String name;
-    private int creditPoints;
+    private int points;
+    @Column(nullable = false)
+    private boolean isCompleted;
 
-    // Getters and Setters
+    public boolean isCompleted() {
+        return isCompleted;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.isCompleted = completed;
+    }
 
     public Long getId() {
         return id;
@@ -30,11 +38,13 @@ public class Event {
         this.name = name;
     }
 
-    public int getCreditPoints() {
-        return creditPoints;
+    public int getPoints() {
+        return points;
     }
 
-    public void setCreditPoints(int creditPoints) {
-        this.creditPoints = creditPoints;
+    public void setPoints(int points) {
+        this.points = points;
     }
+
+
 }

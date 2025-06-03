@@ -1,5 +1,25 @@
-CREATE TABLE IF NOT EXISTS event (
+CREATE TABLE event (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
-    credit_points INT NOT NULL
+    points INT NOT NULL,
+    is_completed BOOLEAN NOT NULL DEFAULT FALSE
+);
+
+CREATE TABLE users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE teams (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY
+);
+
+CREATE TABLE team_events (
+    team_id BIGINT NOT NULL,
+    event_id BIGINT NOT NULL,
+    PRIMARY KEY (team_id, event_id),
+    FOREIGN KEY (team_id) REFERENCES teams(id),
+    FOREIGN KEY (event_id) REFERENCES event(id)
 );
